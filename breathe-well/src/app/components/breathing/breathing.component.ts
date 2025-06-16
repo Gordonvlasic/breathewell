@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreathingService, BreathingMode } from '../../services/breathing.service';
 import { interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-breathing',
   standalone: true,
@@ -16,7 +16,7 @@ export class BreathingComponent implements OnInit {
   size = 150;
   private phases: { name: string; duration: number; action: () => void }[] = [];
 
-  constructor(private breathingService: BreathingService) {}
+  constructor(private breathingService: BreathingService, private router:Router) {}
 
   ngOnInit(): void {
     const mode = this.breathingService.getSelectedMode();
@@ -33,13 +33,25 @@ export class BreathingComponent implements OnInit {
     this.runCycle();
   }
 
-  runCycle(index = 0) {
-    const current = this.phases[index];
-    this.phase = current.name;
-    current.action();
+  transitionDuration = 1;
+  scale = 1;
 
-    setTimeout(() => {
-      this.runCycle((index + 1) % this.phases.length);
-    }, current.duration * 1000);
+runCycle(index = 0) {
+  const current = this.phases[index];
+  this.phase = current.name;
+  this.transitionDuration = current.duration;
+
+  if (current.name === 'Inhale') this.scale = 1.3;
+  else if (current.name === 'Exhale') this.scale = 1.0;
+
+  setTimeout(() => {
+    this.runCycle((index + 1) % this.phases.length);
+  }, current.duration * 1000);
+}
+
+  goBack(){
+    this.router.navigate(['/']);
   }
+
+  
 }
