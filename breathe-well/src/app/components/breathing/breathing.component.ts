@@ -13,10 +13,15 @@ import { Router } from '@angular/router'
 export class BreathingComponent implements OnInit {
   mode!: BreathingMode;
   phase = '';
+  scale = 1;
   size = 150;
+  transitionDuration = 1;
+  showCountdown = true;
+  countdownValue = 3;
+
   private phases: { name: string; duration: number; action: () => void }[] = [];
 
-  constructor(private breathingService: BreathingService, private router:Router) {}
+  constructor(private breathingService: BreathingService, private router: Router) {}
 
   ngOnInit(): void {
     const mode = this.breathingService.getSelectedMode();
@@ -24,34 +29,41 @@ export class BreathingComponent implements OnInit {
 
     this.mode = mode;
     this.phases = [
-      { name: 'Inhale', duration: mode.inhale, action: () => this.size = 200 },
+      { name: 'Inhale', duration: mode.inhale, action: () => this.scale = 1.3 },
       { name: 'Hold', duration: mode.holdAfterInhale, action: () => {} },
-      { name: 'Exhale', duration: mode.exhale, action: () => this.size = 100 },
+      { name: 'Exhale', duration: mode.exhale, action: () => this.scale = 1.0 },
       { name: 'Hold', duration: mode.holdAfterExhale, action: () => {} }
     ].filter(p => p.duration > 0);
 
-    this.runCycle();
+    this.startCountdown();
   }
 
-  transitionDuration = 1;
-  scale = 1;
+  startCountdown() {
+    const countdown = setInterval(() => {
+      this.countdownValue--;
+      if (this.countdownValue === 0) {
+        clearInterval(countdown);
+        this.showCountdown = false;
+        this.runCycle();
+      }
+    }, 1000);
+  }
 
 runCycle(index = 0) {
   const current = this.phases[index];
   this.phase = current.name;
   this.transitionDuration = current.duration;
 
-  if (current.name === 'Inhale') this.scale = 1.3;
-  else if (current.name === 'Exhale') this.scale = 1.0;
+  setTimeout(() => {
+    current.action();
+  }, 10);
 
   setTimeout(() => {
     this.runCycle((index + 1) % this.phases.length);
   }, current.duration * 1000);
 }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/']);
   }
-
-  
 }

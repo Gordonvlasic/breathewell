@@ -1,4 +1,58 @@
 :host {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+  font-family: 'Segoe UI', sans-serif;
   text-align: center;
+}
+
+.breathing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phase-text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0d47a1;
+}
+
+.breathing-circle {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at 50% 50%, #90caf9 30%, #42a5f5 100%);
+  border-radius: 50%;
+  margin: 1.5rem 0;
+  transition: transform 1s ease-in-out;
+  box-shadow: 0 0 25px rgba(66, 165, 245, 0.25);
+}
+
+.back-button {
+  background-color: transparent;
+  border: 1px solid #1565c0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #1565c0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e3f2fd;
+}
+
+.countdown-text h2 {
+  font-size: 2rem;
+  color: #1565c0;
+}
+
+.countdown {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0d47a1;
+  margin-top: 1rem;
 }
