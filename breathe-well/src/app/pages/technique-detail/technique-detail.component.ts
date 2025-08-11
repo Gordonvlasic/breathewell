@@ -35,98 +35,82 @@ const tone = {
 // Safer than a giant object literal: specific titles first, then keyword fallback.
 function iconFor(title: string, note?: string): IconSpec {
   switch (title) {
-    // Box Breathing
+
     case 'Down-shift stress fast':   return { name: 'Leaf',      ...tone.emerald };
     case 'Sharper focus':            return { name: 'Target',    ...tone.indigo  };
     case 'Vagal engagement':         return { name: 'Heart',     ...tone.rose    };
     case 'Composure on demand':      return { name: 'RefreshCw', ...tone.indigo  };
 
-    // Coherent Breathing
     case 'Nervous system balance':   return { name: 'Waves',     ...tone.sky     };
     case 'Calm clarity':             return { name: 'Leaf',      ...tone.emerald };
     case 'Better sleep & recovery':  return { name: 'Moon',      ...tone.violet  };
     case 'Attention support':        return { name: 'Target',    ...tone.indigo  };
 
-    // 4-7-8 Breathing
     case 'Rapid relaxation':         return { name: 'Leaf',      ...tone.emerald };
     case 'Sleep onset help':         return { name: 'Moon',      ...tone.violet  };
     case 'Emotion regulation':       return { name: 'Heart',     ...tone.rose    };
     case 'Anytime reset':            return { name: 'RefreshCw', ...tone.indigo  };
 
-    // Diaphragmatic (Belly) Breathing
     case 'Efficient breathing':      return { name: 'Activity',  ...tone.sky     };
     case 'Stress relief':            return { name: 'Leaf',      ...tone.emerald };
     case 'Better oxygenation':       return { name: 'Waves',     ...tone.sky     };
     case 'Body awareness':           return { name: 'Eye',       ...tone.indigo  };
 
-    // Alternate Nostril Breathing
     case 'Calm balance':             return { name: 'Leaf',      ...tone.emerald };
     case 'Mental clarity':           return { name: 'Brain',     ...tone.fuchsia };
     case 'Stress reduction':         return { name: 'Leaf',      ...tone.emerald };
     case 'Breath control':           return { name: 'Gauge',     ...tone.indigo  };
 
-    // Equal Breathing
     case 'Steady calm':              return { name: 'Leaf',      ...tone.emerald };
     case 'Focus anchor':             return { name: 'Target',    ...tone.indigo  };
     case 'Sleep-friendly':           return { name: 'Moon',      ...tone.violet  };
     case 'Beginner-proof':           return { name: 'CheckCircle2', ...tone.emerald };
 
-    // Lion’s Breath
     case 'Jaw/face release':         return { name: 'Smile',     ...tone.rose    };
     case 'Energy lift':              return { name: 'Zap',       ...tone.amber   };
     case 'Vocal ease':               return { name: 'Mic',       ...tone.fuchsia };
     case 'Mood shift':               return { name: 'Sparkles',  ...tone.amber   };
 
-    // Pursed-Lip Breathing
     case 'Less breathlessness':      return { name: 'Wind',      ...tone.teal    };
     case 'Calmer pace':              return { name: 'Waves',     ...tone.sky     };
     case 'Everyday utility':         return { name: 'Smartphone',...tone.slate   };
     case 'CO₂ balance':              return { name: 'Gauge',     ...tone.indigo  };
 
-    // 3-3-3 Breathing
     case 'Quick reset':              return { name: 'RefreshCw', ...tone.indigo  };
     case 'Attention anchor':         return { name: 'Target',    ...tone.indigo  };
     case 'Gentle control':           return { name: 'Feather',   ...tone.teal    };
     case 'Portable tool':            return { name: 'Smartphone',...tone.slate   };
 
-    // Humming Bee Breath
     case 'Instant calm':             return { name: 'Leaf',      ...tone.emerald };
     case 'Focus aid':                return { name: 'Target',    ...tone.indigo  };
     case 'Sinus relief':             return { name: 'Wind',      ...tone.teal    };
     case 'Mood lift':                return { name: 'Sun',       ...tone.amber   };
 
-    // Papworth Method
     case 'Reduced hyperventilation': return { name: 'Activity',  ...tone.sky     };
     case 'Anxiety relief':           return { name: 'Heart',     ...tone.rose    };
     case 'Better sleep hygiene':     return { name: 'Moon',      ...tone.violet  };
     case 'Breath awareness':         return { name: 'Eye',       ...tone.indigo  };
 
-    // Skull Shining Breath
     case 'Energy boost':             return { name: 'Zap',       ...tone.amber   };
     case 'Airway clearing':          return { name: 'Wind',      ...tone.teal    };
     case 'Core engagement':          return { name: 'Activity',  ...tone.fuchsia };
     case 'Mental brightness':        return { name: 'Sun',       ...tone.amber   };
 
-    // Mindful Breath Awareness
     case 'Meta-awareness':           return { name: 'Eye',       ...tone.indigo  };
     case 'Stress buffering':         return { name: 'Leaf',      ...tone.emerald };
     case 'Cognitive clarity':        return { name: 'Brain',     ...tone.fuchsia };
     case 'Neuroplastic support':     return { name: 'Brain',     ...tone.fuchsia };
 
-    // Three-Part Breathing
     case 'Fuller lung use':          return { name: 'Expand',    ...tone.sky     };
     case 'Relaxation response':      return { name: 'Waves',     ...tone.sky     };
     case 'Posture awareness':        return { name: 'Layers',    ...tone.slate   };
     case 'Foundational skill':       return { name: 'Layers',    ...tone.slate   };
 
-    // Double Breathing
     case 'Focused alertness':        return { name: 'Target',    ...tone.indigo  };
-    // NOTE: We already have 'Breath control' above—don’t duplicate it here.
     case 'Cognitive refresh':        return { name: 'Brain',     ...tone.fuchsia };
     case 'Versatile timing':         return { name: 'Timer',     ...tone.indigo  };
   }
 
-  // Keyword fallback (future-proof)
   const t = (title + ' ' + (note || '')).toLowerCase();
   if (/(focus|clarity|attention)/.test(t)) return { name: 'Target', ...tone.indigo };
   if (/(sleep|insomnia|bed)/.test(t))     return { name: 'Moon',   ...tone.violet };
@@ -146,7 +130,7 @@ function iconFor(title: string, note?: string): IconSpec {
     CommonModule,
     BreathChipComponent,
     BreathingPlayerComponent,
-    IconsModule, // ✅ wrapped NgModule with lucide .pick()
+    IconsModule,
   ],
   templateUrl: './technique-detail.component.html',
 })
@@ -190,5 +174,68 @@ export class TechniqueDetailComponent {
       'Repeat 4–8 cycles. Stop if dizzy or strained.'
     ];
     return lines.filter(Boolean) as string[];
+  }
+
+  applyRing(spec: { ring: string }) {
+    return {
+      'ring-indigo-200':  spec.ring === 'ring-indigo-200',
+      'ring-emerald-200': spec.ring === 'ring-emerald-200',
+      'ring-violet-200':  spec.ring === 'ring-violet-200',
+      'ring-amber-200':   spec.ring === 'ring-amber-200',
+      'ring-teal-200':    spec.ring === 'ring-teal-200',
+      'ring-sky-200':     spec.ring === 'ring-sky-200',
+      'ring-rose-200':    spec.ring === 'ring-rose-200',
+      'ring-fuchsia-200': spec.ring === 'ring-fuchsia-200',
+      'ring-slate-200':   spec.ring === 'ring-slate-200',
+    };
+  }
+
+  applyBg(spec: { bg: string }) {
+    return {
+      'bg-indigo-50':   spec.bg === 'bg-indigo-50',
+      'bg-emerald-50':  spec.bg === 'bg-emerald-50',
+      'bg-violet-50':   spec.bg === 'bg-violet-50',
+      'bg-amber-50':    spec.bg === 'bg-amber-50',
+      'bg-teal-50':     spec.bg === 'bg-teal-50',
+      'bg-sky-50':      spec.bg === 'bg-sky-50',
+      'bg-rose-50':     spec.bg === 'bg-rose-50',
+      'bg-fuchsia-50':  spec.bg === 'bg-fuchsia-50',
+      'bg-slate-100':   spec.bg === 'bg-slate-100',
+    };
+  }
+
+  applyFg(spec: { fg: string }) {
+    return {
+      'text-indigo-600':   spec.fg === 'text-indigo-600',
+      'text-emerald-600':  spec.fg === 'text-emerald-600',
+      'text-violet-600':   spec.fg === 'text-violet-600',
+      'text-amber-600':    spec.fg === 'text-amber-600',
+      'text-teal-600':     spec.fg === 'text-teal-600',
+      'text-sky-600':      spec.fg === 'text-sky-600',
+      'text-rose-600':     spec.fg === 'text-rose-600',
+      'text-fuchsia-600':  spec.fg === 'text-fuchsia-600',
+      'text-slate-700':    spec.fg === 'text-slate-700',
+    };
+  }
+
+  chipClasses(spec: IconSpec) {
+    return {
+      ...this.applyRing(spec),
+      ...this.applyBg(spec),
+    };
+  }
+
+  hoverRingClasses(spec: { ring: string }) {
+    return {
+      'hover:ring-indigo-200':  spec.ring === 'ring-indigo-200',
+      'hover:ring-emerald-200': spec.ring === 'ring-emerald-200',
+      'hover:ring-violet-200':  spec.ring === 'ring-violet-200',
+      'hover:ring-amber-200':   spec.ring === 'ring-amber-200',
+      'hover:ring-teal-200':    spec.ring === 'ring-teal-200',
+      'hover:ring-sky-200':     spec.ring === 'ring-sky-200',
+      'hover:ring-rose-200':    spec.ring === 'ring-rose-200',
+      'hover:ring-fuchsia-200': spec.ring === 'ring-fuchsia-200',
+      'hover:ring-slate-200':   spec.ring === 'ring-slate-200',
+    };
   }
 }

@@ -8,8 +8,8 @@ import { BreathChipComponent } from '../../shared/components/breath-chip/breath-
 import { SectionComponent } from '../../shared/components/section/section.component';
 
 type CategoryChip = {
-  label: string;   // shown in the hero
-  terms: string[]; // underlying category names in the data
+  label: string;   
+  terms: string[]; 
   idleClass: string;
   activeClass: string;
 };
@@ -25,10 +25,9 @@ export class HomeComponent {
   techniques$ = this.svc.all$;
 
   q = signal('');
-  filterCategory = signal<string | null>(null); // chip label or null for "All"
+  filterCategory = signal<string | null>(null); 
   readonly year = new Date().getFullYear();
 
-  // High-contrast colored chips
   categoryChips: CategoryChip[] = [
     {
       label: 'Focus',
@@ -56,7 +55,7 @@ export class HomeComponent {
     },
   ];
 
-  // UI helpers
+ 
   isActive(label: string) {
     return this.filterCategory()?.toLowerCase() === label.toLowerCase();
   }
@@ -70,7 +69,6 @@ export class HomeComponent {
     this.filterCategory.set(null);
   }
 
-  // Search + mapped category filter
   filtered(list: Technique[]) {
     const q = this.q().toLowerCase().trim();
     const activeLabel = this.filterCategory();

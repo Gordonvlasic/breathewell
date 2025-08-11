@@ -14,7 +14,7 @@ export interface Technique {
 export class TechniquesService {
   private http = inject(HttpClient);
 
-  all$ = this.http.get<Technique[]>('/breath_techniques.json') // ⬅ matches what you tested
+  all$ = this.http.get<Technique[]>('breath_techniques.json') 
     .pipe(
       tap(list => console.log('[techniques] loaded:', list?.length, 'items')),
       catchError(err => {

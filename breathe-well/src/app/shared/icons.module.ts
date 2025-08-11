@@ -6,10 +6,6 @@ import {
   CheckCircle2, Timer, Activity
 } from 'lucide-angular';
 
-/**
- * Wrap lucide's `.pick()` in an NgModule so we can import it
- * from standalone components without the ModuleWithProviders error.
- */
 @NgModule({
   imports: [
     LucideAngularModule.pick({

@@ -102,7 +102,7 @@ export class BreathingPlayerComponent implements OnDestroy {
   @Input() phases: Phase[] = [];
   @ViewChild('bubbleEl', { static: false }) bubbleRef?: ElementRef<HTMLDivElement>;
 
-  // Base bubble is 12rem, dial is 14rem -> reach rim at ~1.167
+
   private readonly minScale = 0.65;
   private readonly maxScale = 1.16;
   private readonly transitionCurve = 'ease-in-out';
@@ -117,7 +117,7 @@ export class BreathingPlayerComponent implements OnDestroy {
   private phaseEndMs = 0;
   private phaseTotalMs = 0;
 
-  // for precise pause/resume
+
   private fromScale = this.minScale;
   private toScale = this.minScale;
 
@@ -137,11 +137,11 @@ export class BreathingPlayerComponent implements OnDestroy {
     if (!this.phases.length || this.running()) return;
 
     if (this.remaining() <= 0) {
-      // fresh start
+
       this.idx.set(0);
       this.setupPhase(true);
     } else {
-      // resume current phase from frozen scale with remaining time
+
       const msLeft = Math.max(0, this.phaseEndMs - Date.now());
       const label = this.currentPhase()?.label ?? '';
       this.fromScale = this.readCurrentScale() ?? this.bubbleScale();
@@ -157,17 +157,16 @@ export class BreathingPlayerComponent implements OnDestroy {
   pause() {
     if (!this.running()) return;
 
-    // stop loop first so time doesn't advance
+
     if (this.tick) cancelAnimationFrame(this.tick);
 
-    // remove transition and flush so it's applied immediately
+
     this.bubbleDuration.set('0s');
     this.flushStyles();
 
-    // read the actual current transform scale; fallback to time interpolation
     const current = this.readCurrentScale() ?? this.computeScaleByTime();
 
-    // lock the bubble in place
+
     this.bubbleScale.set(current);
     this.fromScale = current;
     this.toScale = current;
@@ -214,7 +213,6 @@ export class BreathingPlayerComponent implements OnDestroy {
     const label = phase.label;
     const target = this.targetScaleFor(label);
 
-    // pick starting scale
     let seedFrom = this.readCurrentScale() ?? this.bubbleScale();
     if (isInitial) {
       if (this.isInhale(label)) seedFrom = this.minScale;
@@ -224,7 +222,6 @@ export class BreathingPlayerComponent implements OnDestroy {
     this.fromScale = seedFrom;
     this.toScale = target;
 
-    // seed without transition (prevents rim flash), flush, then animate
     this.bubbleDuration.set('0s');
     this.bubbleScale.set(this.fromScale);
     this.flushStyles();
@@ -247,32 +244,30 @@ export class BreathingPlayerComponent implements OnDestroy {
     return this.bubbleScale();
   }
 
-  /** Force a layout read so style changes (like transition:0s) apply immediately */
   private flushStyles() {
     const el = this.bubbleRef?.nativeElement;
-    if (el) void el.offsetHeight; // layout read to flush changes
+    if (el) void el.offsetHeight;
   }
 
-  /** Read the live scale from computed transform; returns null if unavailable */
+
   private readCurrentScale(): number | null {
     const el = this.bubbleRef?.nativeElement;
     if (!el) return null;
     const tr = getComputedStyle(el).transform;
     if (!tr || tr === 'none') return null;
 
-    // matrix(a,b,c,d,tx,ty) | matrix3d(...)
+
     const nums = tr.startsWith('matrix3d')
       ? tr.match(/matrix3d\(([^)]+)\)/)?.[1]?.split(',').map(Number)
       : tr.match(/matrix\(([^)]+)\)/)?.[1]?.split(',').map(Number);
 
     if (!nums || !nums.length) return null;
-    // uniform scale → use a (m11)
+
     const sx = Math.abs(nums[0]);
     return sx || null;
-    // (translate(-50%, -50%) is unaffected)
+
   }
 
-  /** Fallback: compute current scale via elapsed time ratio */
   private computeScaleByTime(): number {
     const now = Date.now();
     const msLeft = Math.max(0, this.phaseEndMs - now);
