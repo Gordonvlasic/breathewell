@@ -2,45 +2,59 @@
   {
     "id": "box-breathing",
     "name": "Box Breathing",
-    "aliases": ["Square Breathing", "Tactical Breathing"],
+    "aliases": ["Four-Square Breathing"],
     "level": "EASY",
     "how_to": "Inhale 4s, hold 4s, exhale 4s, hold 4s",
     "after_feel": "Composed, focused, and mentally steady — even in moments that would normally overwhelm you.",
+    "short_desc": "Structured equal breathing with a 4-part cycle",
     "description": "A four-part, even-paced breath used by athletes, first responders, and meditation teachers to quickly stabilize attention and down-shift stress. The equal inhalation, holds, and exhalation help nudge the nervous system toward balance and cognitive control.",
     "categories": ["Anxiety and Stress","Energize","Focus", "Calm Body and Mind", "Brain Fog, Memory & ADHD", "Headache","Neuplasticity","Vagus Nerve (Relaxtion)","Nervous System","Sympathetic & parasympathetic","Prefrontal cortex (executive functions)"],
     "quick_how_to": [
-      "Sit tall; relax jaw/shoulders; breathe quietly through the nose.",
-      "Inhale 4s → Hold 4s → Exhale 4s → Hold 4s.",
-      "Keep the breath smooth; don’t strain on the holds.",
-      "Start with 4–6 cycles; extend to 1–3 minutes as comfortable."
+      "Repeat cycles.",
+      "Avoid if breath-holds trigger dizziness",
+      "Suggested duration: 1–5 min",
+      "Keep shoulders relaxed; smooth edges"
     ],
     "benefits": [
       { "title": "Down-shift stress fast", "note": "Equal phases reduce sympathetic arousal in ~1–2 minutes." },
       { "title": "Sharper focus", "note": "Steadies prefrontal control under pressure." },
       { "title": "Vagal engagement", "note": "Gentle holds reinforce parasympathetic rebound." },
       { "title": "Composure on demand", "note": "Useful before meetings, tests, or difficult conversations." }
+    ],
+    "more_information": [
+      { "title": "Yoga + modern stress training" },
+      { "title": "Improves focus, reduces anxiety" },
+      { "title": "Stress-regulation protocols (military)" },
+      { "title": "Builds steady focus and composure" }
     ]
   },
   {
     "id": "coherent-breathing",
     "name": "Coherent Breathing",
-    "aliases": ["Resonance Breathing"],
+    "aliases": ["Resonant Breathing"],
     "level": "EASY",
     "how_to": "Inhale 6s, exhale 6s",
     "after_feel": "Focused, calm, and centered.",
+    "short_desc": "Slow, even breathing at ~5–6 breaths/min",
     "description": "Slow, even breathing around 5–6 breaths per minute that improves heart-rate variability (HRV), emotional regulation, and resilience. Excellent as a daily nervous-system baseline practice.",
     "categories": ["Anxiety and Stress","Fall Asleep","Focus","Brain Fog, Memory & ADHD","Neuplasticity","Vagus Nerve (Relaxtion)","Nervous System","Sympathetic & parasympathetic","Amygdala","Prefrontal cortex (executive functions)"],
     "quick_how_to": [
-      "Sit or lie comfortably; breathe through the nose.",
-      "Inhale 6s → Exhale 6s (no holds).",
-      "Keep the breath smooth and quiet; relax the belly.",
-      "Continue 5–15 minutes; daily is ideal."
+      "Keep it effortless",
+      "Generally safe",
+      "Suggested duration: 10–20 min",
+      "Consistency matters more than depth"
     ],
     "benefits": [
       { "title": "Nervous system balance", "note": "Resonance rate supports HRV and autonomic flexibility." },
       { "title": "Calm clarity", "note": "Reduces anxious reactivity and mental noise." },
       { "title": "Better sleep & recovery", "note": "Effective evening wind-down routine." },
       { "title": "Attention support", "note": "Steadier arousal levels aid focus/ADHD." }
+    ],
+    "more_information": [
+      { "title": "Yoga + HRV research" },
+      { "title": "Enhances HRV coherence; reduces stress" },
+      { "title": "HRV coherence studies"},
+      { "title": "Builds resilience and calm energy" }
     ]
   },
   {
@@ -50,11 +64,12 @@
     "level": "EASY",
     "how_to": "Inhale 4s, hold 7s, exhale 8s",
     "after_feel": "Relaxed, sleepy, and grounded — like someone just hit a gentle reset button on your nervous system.",
+    "short_desc": "Unequal ratio breathing with extended exhale",
     "description": "A classic down-regulation technique that lengthens the exhale and includes a stillness hold to slow physiology. Often used for falling asleep and reducing acute stress.",
     "categories": ["Anxiety and Stress","Fall Asleep","Energize","Focus","Increase Oxygen","Neuplasticity","Vagus Nerve (Relaxtion)","Sympathetic & parasympathetic","Amygdala"],
     "quick_how_to": [
-      "Seated or lying; mouth closed, breathe through nose.",
-      "Inhale 4s → Hold 7s → Exhale 8s (pursed lips optional).",
+      "Stop if dizzy or breathless",
+      "Start with few rounds; expand slowly",
       "Keep effort gentle; don’t force the long exhale.",
       "Start with 4 cycles; build up to 8 cycles."
     ],
@@ -63,6 +78,12 @@
       { "title": "Sleep onset help", "note": "Quiets rumination and slows heart rate." },
       { "title": "Emotion regulation", "note": "Down-shifts limbic activation under stress." },
       { "title": "Anytime reset", "note": "Short, portable protocol for spikes of anxiety." }
+    ],
+    "more_information": [
+      { "title": "Yoga adapted in modern medicine" },
+      { "title": "Quiets mind; reduces arousal" },
+      { "title": "Relaxation-response literature"},
+      { "title": "Promotes deep relaxation and sleep onset" }
     ]
   },
   {
@@ -72,129 +93,171 @@
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 4s",
     "after_feel": "Grounded, calm, and oxygenated — often more in touch with body awareness.",
+    "short_desc": "Deep abdominal breathing via diaphragm",
     "description": "A foundational technique emphasizing the diaphragm rather than accessory chest muscles. Improves oxygenation, posture, and vagal tone; useful for anxiety, breath retraining, and recovery.",
     "categories": ["Anxiety and Stress","Fall Asleep","Energize","Brain Fog, Memory & ADHD","Increase Oxygen","Neuplasticity","Vagus Nerve (Relaxtion)","Sympathetic & parasympathetic"],
     "quick_how_to": [
       "One hand on chest, one on belly; breathe through the nose.",
-      "Inhale: belly rises and ribs widen; shoulders stay relaxed.",
-      "Exhale: belly softens toward spine; long and easy.",
-      "Find a smooth rhythm for 5–10 minutes."
+      "Generally safe",
+      "Suggested duration: 5-10 min",
+      "Keep shoulders soft; nasal breathing."
     ],
     "benefits": [
       { "title": "Efficient breathing", "note": "Reduces over-breathing and neck/shoulder tension." },
       { "title": "Stress relief", "note": "Stimulates vagus nerve and relaxes the body." },
       { "title": "Better oxygenation", "note": "Improves alveolar ventilation and CO₂ tolerance." },
       { "title": "Body awareness", "note": "Enhances interoception and calm presence." }
+    ],
+    "more_information": [
+      { "title": "Yoga + clinical rehab" },
+      { "title": "Calms limbic activity" },
+      { "title": "Pulmonary rehab guidelines"},
+      { "title": "Restores calm and efficient breathing" }
     ]
   },
   {
     "id": "alternate-nostril-breathing",
     "name": "Alternate Nostril Breathing",
-    "aliases": ["Nadi Shodhana", "Anulom Vilom"],
+    "aliases": ["Channel-Clearing Breath"],
     "level": "MODERATE",
-    "how_to": "Inhale left 4s, exhale right 4s, inhale right 4s, exhale left 4s",
+    "how_to": "Inhale left 4s, exhale right 4s, alternate",
     "after_feel": "Clear, balanced, and mentally refreshed — like your brain just got a reset.",
+    "short_desc": "Breathing alternates through nostrils to balance",
     "description": "A classic yogic practice alternating airflow between nostrils. Can balance hemispheric activity, reduce anxiety, and improve attentional stability.",
     "categories": ["Anxiety and Stress","Focus","Brain Fog, Memory & ADHD","Nervous System","Sympathetic & parasympathetic"],
     "quick_how_to": [
-      "Sit tall; right hand in Vishnu mudra if familiar.",
-      "Close right nostril; inhale left. Close left; exhale right.",
-      "Inhale right; close right; exhale left (that’s one cycle).",
-      "Keep breath smooth and quiet; continue 3–8 minutes."
+      "Close Right; inhale Left. Close Left; exhale Right. Reverse sides.",
+      "Avoid if acutely congested",
+      "Suggested duration: 5-10 min",
+      "Gentle pressure; steady cadence"
     ],
     "benefits": [
       { "title": "Calm balance", "note": "Balances autonomic tone and attention." },
       { "title": "Mental clarity", "note": "Clears fog; supports task-switching." },
       { "title": "Stress reduction", "note": "Steady cadence decreases arousal." },
       { "title": "Breath control", "note": "Improves nasal patency and pacing." }
+    ],
+    "more_information": [
+      { "title": "Classical yoga" },
+      { "title": "Enhances attentional control" },
+      { "title": "Yoga breathing studies"},
+      { "title": "Restores inner equilibrium" }
     ]
   },
   {
     "id": "equal-breathing",
     "name": "Equal Breathing",
-    "aliases": ["Sama Vritti"],
+    "aliases": ["Balanced Breath"],
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 4s",
     "after_feel": "Balanced, calm, and mentally aligned — like your thoughts and body are in sync.",
+    "short_desc": "Inhale and exhale are the same length",
     "description": "Simple, even-ratio breathing that stabilizes rhythm and attention. Great for beginners and as an anchor during meditation or stressful moments.",
     "categories": ["Anxiety and Stress","Fall Asleep","Calm Body and Mind","Prefrontal cortex (executive functions)"],
     "quick_how_to": [
-      "Breathe through the nose; set a gentle pace.",
-      "Inhale 4s → Exhale 4s (adjust to 3–6s as comfortable).",
-      "Keep shoulders soft; let the belly move.",
-      "Continue 3–10 minutes."
+      "Count your inhale; match the exhale.",
+      "Generally safe",
+      "Suggested duration: 3-10 min",
+      "Comfort > big volume"
     ],
     "benefits": [
       { "title": "Steady calm", "note": "Even rhythm settles the nervous system." },
       { "title": "Focus anchor", "note": "Predictable timing supports attention." },
       { "title": "Sleep-friendly", "note": "Works well before bed or during wake-ups." },
       { "title": "Beginner-proof", "note": "Low cognitive load; easy to adopt." }
+    ],
+    "more_information": [
+      { "title": "Yoga" },
+      { "title": "Reduces cognitive load" },
+      { "title": "Breath pacing research"},
+      { "title": "Quick, reliable state reset" }
     ]
   },
   {
     "id": "lions-breath",
     "name": "Lion’s Breath",
-    "aliases": ["Simhasana Pranayama"],
+    "aliases": ["Simhasana Breath"],
     "level": "EASY",
     "how_to": "Inhale 3s, exhale 3s",
     "after_feel": "Unburdened, energized, and relaxed in the face/jaw.",
+    "short_desc": "Forceful mouth exhale with tongue extended",
     "description": "A playful tension-release technique that relaxes the face, jaw, and throat while boosting alertness. Useful for breaking bracing patterns and improving vocal freedom.",
     "categories": ["Anxiety and Stress","Energize","Calm Body and Mind"],
     "quick_how_to": [
-      "Kneel or sit tall; inhale through the nose.",
-      "Exhale strongly: mouth wide, tongue out, eyes open; ‘haaa’.",
-      "Relax the jaw; repeat 3–6 rounds.",
-      "Finish with a few easy nasal breaths."
+      "Inhale through nose. Exhale with mouth open, tongue out, 'ha.'",
+      "May dry throat; be gentle",
+      "Suggested duration: 3-10 min",
+      "Relax face after each round"
     ],
     "benefits": [
       { "title": "Jaw/face release", "note": "Relieves clenching and TMJ-style tension." },
       { "title": "Energy lift", "note": "Strong exhale boosts alertness." },
       { "title": "Vocal ease", "note": "Opens throat; helpful before speaking." },
       { "title": "Mood shift", "note": "Playful expression interrupts stress loops." }
+    ],
+    "more_information": [
+      { "title": "Yoga (asana+pranayama)" },
+      { "title": "Releases facial motor tension" },
+      { "title": "Yoga pranayama tradition"},
+      { "title": "Discharges pent‑up tension fast" }
     ]
   },
   {
     "id": "pursed-lip-breathing",
     "name": "Pursed-Lip Breathing",
-    "aliases": [],
+    "aliases": ["Controlled Exhale Breath"],
     "level": "EASY",
     "how_to": "Inhale 3s, exhale 6s",
     "after_feel": "Relieved, in control, and more at ease — especially if short of breath.",
+    "short_desc": "Long, resisted exhale through pursed lips",
     "description": "Commonly used in pulmonary rehab. The slight back-pressure during exhale helps keep airways open, reduces breathlessness, and improves CO₂ clearance.",
     "categories": ["Anxiety and Stress","Energize","Calm Body and Mind","Increase Oxygen","Sympathetic & parasympathetic"],
     "quick_how_to": [
-      "Breathe in through the nose for 2–3s.",
-      "Purse lips (like whistling); exhale 4–6s slowly.",
-      "Avoid force; keep exhale steady and controlled.",
-      "Use during exertion, climbing stairs, or anxiety spikes."
+      "Inhale nose. Exhale slowly through pursed lips 2× as long.",
+      "Stop if lightheaded",
+      "Suggested duration: 1-5 min",
+      "Keep cheeks soft; no force"
     ],
     "benefits": [
       { "title": "Less breathlessness", "note": "Back-pressure keeps small airways open." },
       { "title": "Calmer pace", "note": "Long exhale reduces over-breathing." },
       { "title": "Everyday utility", "note": "Great during exercise or panic sensations." },
       { "title": "CO₂ balance", "note": "Supports efficient gas exchange." }
+    ],
+    "more_information": [
+      { "title": "Clinical pulmonary rehab" },
+      { "title": "Reduces panic sensation" },
+      { "title": "COPD management guidelines"},
+      { "title": "Relieves shortness of breath quickly" }
     ]
   },
   {
     "id": "3-3-3-breathing",
     "name": "3-3-3 Breathing",
-    "aliases": [],
+    "aliases": ["Triangle Breath"],
     "level": "EASY",
     "how_to": "Inhale 3s, hold 3s, exhale 3s",
     "after_feel": "Centered and present, with reduced physiological urgency.",
+    "short_desc": "Short equal counts for in/hold/out",
     "description": "A simple tempo that’s easy to remember in stressful moments. Useful as a quick cognitive anchor and physiological brake without long holds.",
     "categories": ["Anxiety and Stress","Focus"],
     "quick_how_to": [
-      "Breathe through the nose.",
-      "Inhale 3s → Hold 3s → Exhale 3s.",
-      "Keep the body loose; avoid strain.",
-      "Repeat for 1–3 minutes."
+      "Count 3 in, 3 hold, 3 out. Repeat.",
+      "Avoid long holds if dizzy",
+      "Suggested duration: 1-3 min",
+      "Keep breath soft, nasal"
     ],
     "benefits": [
       { "title": "Quick reset", "note": "Short cycle ease makes it usable anywhere." },
       { "title": "Attention anchor", "note": "Counting + breathing interrupts spirals." },
       { "title": "Gentle control", "note": "Brief hold tames urgency without discomfort." },
       { "title": "Portable tool", "note": "Great in meetings or public spaces." }
+    ],
+    "more_information": [
+      { "title": "Modern pacing + yoga" },
+      { "title": "Settles attention fast" },
+      { "title": "Breath pacing practice"},
+      { "title": "Fast, accessible composure" }
     ]
   },
   {
@@ -204,129 +267,142 @@
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 6s",
     "after_feel": "Soothed, centered, and vibrationally relaxed.",
+    "short_desc": "Gentle inhale; humming/vibrating exhale",
     "description": "Gentle vocalization during exhale creates resonance that can calm the nervous system, reduce reactivity, and improve focus. Many find it immediately soothing.",
     "categories": ["Energize","Increase Oxygen","Vagus Nerve (Relaxtion)","Sympathetic & parasympathetic"],
     "quick_how_to": [
-      "Sit tall; inhale through the nose.",
-      "Exhale with a comfortable ‘mmm’ hum.",
-      "Feel vibration in face/throat; keep volume low.",
-      "Continue 3–5 minutes; rest between rounds if needed."
+      "Inhale softly. Exhale humming; feel vibrations.",
+      "Avoid with ear infections",
+      "Suggested duration: 3-10 min",
+      "Mouth closed; light hum"
     ],
     "benefits": [
       { "title": "Instant calm", "note": "Resonance/vibration soothes limbic reactivity." },
       { "title": "Focus aid", "note": "Auditory anchor reduces distraction." },
       { "title": "Sinus relief", "note": "Vibration may improve nasal airflow." },
       { "title": "Mood lift", "note": "Gentle toning can feel pleasantly energizing." }
+    ],
+    "more_information": [
+      { "title": "Yoga" },
+      { "title": "Vagal stimulation via vibration" },
+      { "title": "Pranayama vibration studies"},
+      { "title": "Quickly quiets inner chatter" }
     ]
   },
   {
     "id": "papworth-method",
     "name": "Papworth Method",
-    "aliases": ["Papworth Breathing Technique"],
+    "aliases": ["Controlled Breathing Therapy"],
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 6s",
     "after_feel": "Steady, in-control breathing with reduced chest tension.",
+    "short_desc": "Breathing retraining using nasal, diaphragmatic pacing",
     "description": "A clinical method from the Papworth Hospital (UK) combining nasal diaphragmatic breathing, posture, and relaxation cues to reduce dysfunctional breathing and anxiety-related symptoms.",
     "categories": ["Fall Asleep"],
     "quick_how_to": [
-      "Sit upright; relax chest/shoulders; breathe via the nose.",
-      "Let the belly move; keep breath silent and slow.",
-      "Exhale a little longer than inhale; avoid sighing/yawning.",
-      "Practice 10–15 minutes, 1–2× daily."
+      "Breathe through nose, low and slow; lengthen exhale.",
+      "Use clinician guidance for asthma",
+      "Suggested duration: 10-20 min",
+      "Focus on relaxed, quiet breath"
     ],
     "benefits": [
       { "title": "Reduced hyperventilation", "note": "Retrains rate/depth for efficiency." },
       { "title": "Anxiety relief", "note": "Posture + nasal breathing calm arousal." },
       { "title": "Better sleep hygiene", "note": "Evening practice down-regulates system." },
       { "title": "Breath awareness", "note": "Improves pattern recognition and control." }
-    ]
-  },
-  {
-    "id": "skull-shining-breath",
-    "name": "Skull Shining Breath",
-    "aliases": ["Kapalabhati"],
-    "level": "ADVANCED",
-    "how_to": "Inhale 1s, exhale 1s",
-    "after_feel": "Bright, alert, and energized.",
-    "description": "A vigorous cleansing technique from yoga involving rhythmic abdominal pumping. Increases alertness and heat; best learned with guidance. (Player shows even timing; in practice, use rapid active exhales with passive inhales.)",
-    "categories": ["Energize"],
-    "quick_how_to": [
-      "Sit tall; inhale softly.",
-      "Pulse the belly to snap out short nasal exhales; let inhales be passive.",
-      "Keep face/throat relaxed; maintain steady pace.",
-      "Do 20–30 pumps; rest; repeat 2–3 rounds."
     ],
-    "benefits": [
-      { "title": "Energy boost", "note": "Activates and warms the system quickly." },
-      { "title": "Airway clearing", "note": "Helps mobilize secretions and stale air." },
-      { "title": "Core engagement", "note": "Strengthens expiratory muscles." },
-      { "title": "Mental brightness", "note": "Can sharpen attention short-term." }
+    "more_information": [
+      { "title": "Clinical (UK, 1960s)" },
+      { "title": "Improves interoception" },
+      { "title": "Breathing-retraining trials"},
+      { "title": "Improves symptoms and control" }
     ]
   },
   {
     "id": "mindful-breath-awareness",
     "name": "Mindful Breath Awareness",
-    "aliases": ["Bare Attention to Breath"],
+    "aliases": ["Conscious Breathing"],
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 4s",
     "after_feel": "Clear, steady, and less entangled with thoughts.",
+    "short_desc": "Non-forced attention to natural breathing",
     "description": "Non-manipulative observation of breathing as an attentional practice. Builds metacognition, reduces reactivity, and supports neuroplastic changes linked with emotional regulation.",
     "categories": ["Neuplasticity","Amygdala"],
     "quick_how_to": [
-      "Choose a breath spot (nose tip, chest, belly).",
-      "Notice inhale/exhale sensations without altering them.",
-      "Label distractions softly; return to the breath.",
-      "Continue 5–20 minutes; be kind to wandering attention."
+      "Sit Upright; feel breath in nose/belly. Notice; return kindly.",
+      "Trauma-sensitive pacing advised",
+      "Suggested duration: 5-30+ min",
+      "No forcing; curiosity helps"
     ],
     "benefits": [
       { "title": "Meta-awareness", "note": "Improves noticing before reacting." },
       { "title": "Stress buffering", "note": "Creates space between trigger and response." },
       { "title": "Cognitive clarity", "note": "Less rumination and noise." },
       { "title": "Neuroplastic support", "note": "Reinforces attentional control networks." }
+    ],
+    "more_information": [
+      { "title": "Meditation traditions" },
+      { "title": "Improves attentional control" },
+      { "title": "Mindfulness research"},
+      { "title": "Builds presence and resilience" }
     ]
   },
   {
     "id": "three-part-breathing",
     "name": "Three-Part Breathing",
-    "aliases": ["Dirgha Pranayama"],
+    "aliases": ["Full Yogic Breath"],
     "level": "EASY",
     "how_to": "Inhale 4s, exhale 6s",
     "after_feel": "Deeply settled with fuller, smoother respiration.",
+    "short_desc": "Sequential belly–rib–chest expansion",
     "description": "A progressive expansion through abdomen, ribs, and upper chest to retrain full lung excursion. Encourages long, unforced exhalation and balanced ventilation.",
     "categories": ["Anxiety and Stress","Calm Body and Mind","Sympathetic & parasympathetic"],
     "quick_how_to": [
-      "Hand on belly and ribs; inhale belly → ribs → chest.",
-      "Exhale chest → ribs → belly; keep it soft and long.",
-      "Avoid lifting shoulders; keep face relaxed.",
-      "Continue for 3–10 minutes."
+      "Inhale: belly, ribs, chest. Exhale: chest, ribs, belly.",
+      "Avoid strain; gentle volumes",
+      "Suggested duration: 5-10 min",
+      "Keep breath quiet; nasal"
     ],
     "benefits": [
       { "title": "Fuller lung use", "note": "Improves ventilation across three regions." },
       { "title": "Relaxation response", "note": "Lengthened exhale reduces arousal." },
       { "title": "Posture awareness", "note": "Encourages rib mobility and ease." },
       { "title": "Foundational skill", "note": "Great warm-up before other techniques." }
+    ],
+    "more_information": [
+      { "title": "Yoga" },
+      { "title": "Enhances body mapping" },
+      { "title": "Pranayama education texts"},
+      { "title": "Teaches full, efficient breathing" }
     ]
   },
   {
     "id": "double-breathing",
     "name": "Double Breathing",
-    "aliases": ["Two-Part Yogic Breath"],
+    "aliases": ["Two-Stage Inhale Breath"],
     "level": "MODERATE",
     "how_to": "Inhale 5s, exhale 5s",
     "after_feel": "Alert but composed, with a sense of spaciousness.",
+    "short_desc": "Two-stage inhale followed by a single exhale",
     "description": "A two-stage inhale and exhale that increases lung inflation awareness and promotes controlled ventilation. Popularized in some yogic and meditative traditions.",
     "categories": ["Energize","Focus","Brain Fog, Memory & ADHD"],
     "quick_how_to": [
-      "Sit tall; inhale ‘short + long’ through the nose.",
-      "Exhale ‘short + long’ (nose or pursed lips).",
-      "Keep transitions seamless; avoid gulping air.",
-      "Practice 1–3 minutes; rest if lightheaded."
+      "Inhale halfway; pause; top-up. Exhale smoothly.",
+      "Avoid hyperventilating",
+      "Suggested duration: 1-3 min",
+      "Keep breaths light; stop if dizzy"
     ],
     "benefits": [
       { "title": "Focused alertness", "note": "Staged inhale can lift energy without jitter." },
       { "title": "Breath control", "note": "Improves pacing and lung awareness." },
       { "title": "Cognitive refresh", "note": "Helpful for brain fog dips." },
       { "title": "Versatile timing", "note": "Use pre-work or during mental resets." }
+    ],
+    "more_information": [
+      { "title": "Yoga/pranayama" },
+      { "title": "Increases alertness" },
+      { "title": "Pranayama segmentation studies"},
+      { "title": "Quick energy and capacity boost" }
     ]
   }
 ]

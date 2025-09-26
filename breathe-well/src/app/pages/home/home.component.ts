@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -8,8 +8,8 @@ import { BreathChipComponent } from '../../shared/components/breath-chip/breath-
 import { SectionComponent } from '../../shared/components/section/section.component';
 
 type CategoryChip = {
-  label: string;   
-  terms: string[]; 
+  label: string;
+  terms: string[];
   idleClass: string;
   activeClass: string;
 };
@@ -25,7 +25,12 @@ export class HomeComponent {
   techniques$ = this.svc.all$;
 
   q = signal('');
-  filterCategory = signal<string | null>(null); 
+  filterCategory = signal<string | null>(null);
+
+  // NEW: controls visibility of the “Before you start” card
+  showSafety = signal<boolean>(true);
+  closeSafety() { this.showSafety.set(false); }
+
   readonly year = new Date().getFullYear();
 
   categoryChips: CategoryChip[] = [
@@ -55,21 +60,23 @@ export class HomeComponent {
     },
   ];
 
- 
   isActive(label: string) {
     return this.filterCategory()?.toLowerCase() === label.toLowerCase();
   }
+
   isAllActive() {
     return this.filterCategory() === null;
   }
+
   toggleFilter(label: string) {
     this.filterCategory.set(this.isActive(label) ? null : label);
   }
+
   clearFilter() {
     this.filterCategory.set(null);
   }
 
-  filtered(list: Technique[]) {
+  private runFilter(list: Technique[]) {
     const q = this.q().toLowerCase().trim();
     const activeLabel = this.filterCategory();
 
@@ -94,4 +101,9 @@ export class HomeComponent {
       return matchesQ && matchesCat;
     });
   }
+
+  /** computed signal for convenience in template */
+  filtered = computed(() => {
+    return (list: Technique[]) => this.runFilter(list);
+  });
 }

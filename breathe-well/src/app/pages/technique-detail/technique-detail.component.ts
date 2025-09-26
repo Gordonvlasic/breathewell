@@ -1,17 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { map, switchMap } from 'rxjs';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { combineLatest, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { TechniquesService } from '../../core/services/techniques.service';
 import { BreathChipComponent } from '../../shared/components/breath-chip/breath-chip.component';
 import { parseBreathPattern } from '../../core/utils/parse-pattern.util';
 import { BreathingPlayerComponent } from '../../shared/components/breathing-player/breathing-player.component';
-import { IconsModule } from '../../shared/icons.module'; // <<— new
+import { IconsModule } from '../../shared/icons.module';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 type Benefit = { title: string; note: string };
 type IconSpec = { name: string; ring: string; fg: string; bg: string };
 
-// fallback benefits if JSON is missing them
 const DEFAULT_BENEFITS: Benefit[] = [
   { title: 'Lower stress response', note: 'Down-shift sympathetic arousal.' },
   { title: 'Increase focus',        note: 'Engage prefrontal control.' },
@@ -19,7 +19,6 @@ const DEFAULT_BENEFITS: Benefit[] = [
   { title: 'Better sleep',          note: 'Ease into parasympathetic.' },
 ];
 
-// shared color tones (tailwind classes)
 const tone = {
   indigo:  { ring: 'ring-indigo-200',   fg: 'text-indigo-600',   bg: 'bg-indigo-50' },
   emerald: { ring: 'ring-emerald-200',  fg: 'text-emerald-600',  bg: 'bg-emerald-50' },
@@ -32,10 +31,8 @@ const tone = {
   slate:   { ring: 'ring-slate-200',    fg: 'text-slate-700',    bg: 'bg-slate-100' },
 };
 
-// Safer than a giant object literal: specific titles first, then keyword fallback.
 function iconFor(title: string, note?: string): IconSpec {
   switch (title) {
-
     case 'Down-shift stress fast':   return { name: 'Leaf',      ...tone.emerald };
     case 'Sharper focus':            return { name: 'Target',    ...tone.indigo  };
     case 'Vagal engagement':         return { name: 'Heart',     ...tone.rose    };
@@ -122,7 +119,6 @@ function iconFor(title: string, note?: string): IconSpec {
   if (/(brain|cognitive|neuro)/.test(t))  return { name: 'Brain',  ...tone.fuchsia };
   return { name: 'Activity', ...tone.slate };
 }
-
 @Component({
   standalone: true,
   selector: 'app-technique-detail',
@@ -131,15 +127,37 @@ function iconFor(title: string, note?: string): IconSpec {
     BreathChipComponent,
     BreathingPlayerComponent,
     IconsModule,
+    RouterModule, // needed for [routerLink]
   ],
   templateUrl: './technique-detail.component.html',
 })
 export class TechniqueDetailComponent {
+
+  constructor(private router: Router){}
+
   private route = inject(ActivatedRoute);
   private svc = inject(TechniquesService);
   private location = inject(Location);
 
+  // when true -> focus mode (hide header/quick-how-to/benefits)
+  isActive = signal(false);
+
   parse = parseBreathPattern;
+
+  // --- helpers: safely get a slug string from a Technique ---
+  private slugify(name: string): string {
+    return (name || '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+  /** Prefer existing fields; otherwise derive from name */
+  private getSlug = (t: any): string =>
+    String(
+      (t && (t.slug || t.id || t.path)) ??
+      this.slugify(t?.name ?? '')
+    );
 
   vm$ = this.route.paramMap.pipe(
     switchMap(params => this.svc.bySlug$(params.get('slug') || '')),
@@ -151,7 +169,33 @@ export class TechniqueDetailComponent {
     }) : t)
   );
 
-  back() { this.location.back(); }
+  /**
+   * Next technique slug (wraps cyclically).
+   * Works even if Technique has no `slug` field; falls back to id/path/name-kebab.
+   */
+  nextSlug$ = combineLatest([
+    this.svc.all$,                             // Array<Technique>
+    this.route.paramMap.pipe(map(pm => pm.get('slug') || '')),
+  ]).pipe(
+    map(([all, current]) => {
+      const slugs = (all ?? []).map(this.getSlug).filter(Boolean);
+      if (slugs.length <= 1) return current;
+
+      let idx = slugs.indexOf(current);
+      if (idx === -1) {
+        // If route param was derived differently, try matching a kebab of current
+        idx = slugs.indexOf(this.slugify(current));
+      }
+      if (idx === -1) {
+        // If still not found, just start at the first
+        return slugs[0];
+      }
+      return slugs[(idx + 1) % slugs.length];
+    }),
+    distinctUntilChanged()
+  );
+
+  back() { this.router.navigate(['/']); }
 
   iconForBenefit(title: string, note?: string): IconSpec {
     return iconFor(title, note);
@@ -176,6 +220,7 @@ export class TechniqueDetailComponent {
     return lines.filter(Boolean) as string[];
   }
 
+  // --- class helpers for colored chips (unchanged) ---
   applyRing(spec: { ring: string }) {
     return {
       'ring-indigo-200':  spec.ring === 'ring-indigo-200',
@@ -189,7 +234,6 @@ export class TechniqueDetailComponent {
       'ring-slate-200':   spec.ring === 'ring-slate-200',
     };
   }
-
   applyBg(spec: { bg: string }) {
     return {
       'bg-indigo-50':   spec.bg === 'bg-indigo-50',
@@ -203,7 +247,6 @@ export class TechniqueDetailComponent {
       'bg-slate-100':   spec.bg === 'bg-slate-100',
     };
   }
-
   applyFg(spec: { fg: string }) {
     return {
       'text-indigo-600':   spec.fg === 'text-indigo-600',
@@ -217,14 +260,9 @@ export class TechniqueDetailComponent {
       'text-slate-700':    spec.fg === 'text-slate-700',
     };
   }
-
   chipClasses(spec: IconSpec) {
-    return {
-      ...this.applyRing(spec),
-      ...this.applyBg(spec),
-    };
+    return { ...this.applyRing(spec), ...this.applyBg(spec) };
   }
-
   hoverRingClasses(spec: { ring: string }) {
     return {
       'hover:ring-indigo-200':  spec.ring === 'ring-indigo-200',
